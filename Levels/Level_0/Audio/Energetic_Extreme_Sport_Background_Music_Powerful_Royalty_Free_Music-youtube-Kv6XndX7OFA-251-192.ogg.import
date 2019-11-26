@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Energetic_Extreme_Sport_Background_Music_Powerful_Royalty_Free_Music-youtube-Kv6XndX7OFA-251-192.ogg-d4ab021228e9a62021cad1e99bafb84a.oggstr"
+
+[deps]
+
+source_file="res://Levels/Level_0/Audio/Energetic_Extreme_Sport_Background_Music_Powerful_Royalty_Free_Music-youtube-Kv6XndX7OFA-251-192.ogg"
+dest_files=[ "res://.import/Energetic_Extreme_Sport_Background_Music_Powerful_Royalty_Free_Music-youtube-Kv6XndX7OFA-251-192.ogg-d4ab021228e9a62021cad1e99bafb84a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

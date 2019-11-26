@@ -1,0 +1,5381 @@
+[gd_scene load_steps=72 format=2]
+
+[ext_resource path="res://Levels/Level_0/Scripts/Level1.gd" type="Script" id=1]
+[ext_resource path="res://Levels/Level_0/Scenes/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/Level_0/Assets/Environment/FloorBackStuff.png" type="Texture" id=3]
+[ext_resource path="res://Levels/Level_0/Assets/Environment/RoofBackStuff.png" type="Texture" id=4]
+[ext_resource path="res://Levels/Level_0/Assets/Demos/OpaqueWall.png" type="Texture" id=5]
+[ext_resource path="res://Levels/Level_0/Scenes/Enemies/RobotZombie.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Levels/Level_0/Scenes/Enemies/Hybrull.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Levels/Level_0/Scenes/Enemies/Monborg.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Levels/Level_0/Assets/UI/Bar/InnerHealthbar@2x.png" type="Texture" id=9]
+[ext_resource path="res://Levels/Level_0/Assets/UI/Bar/HealthHealthbar@2x.png" type="Texture" id=10]
+[ext_resource path="res://Levels/Level_0/Assets/UI/Bar/ManaHealthbar@2x.png" type="Texture" id=11]
+[ext_resource path="res://Levels/Level_0/Assets/UI/Bar/OuterHealthbar@2x.png" type="Texture" id=12]
+[ext_resource path="res://Levels/Level_0/Scripts/Interactables/Rock/Rock.gd" type="Script" id=13]
+[ext_resource path="res://Levels/Level_0/Assets/Interactables/Rock/triangleupRockPart.png" type="Texture" id=14]
+[ext_resource path="res://Levels/Level_0/Assets/Interactables/Rock/triangledownRockPart.png" type="Texture" id=15]
+[ext_resource path="res://Levels/Level_0/Assets/Interactables/Lava/TopLava.png" type="Texture" id=16]
+[ext_resource path="res://Levels/Level_0/Assets/Interactables/Lava/BottomLava.png" type="Texture" id=17]
+[ext_resource path="res://Levels/Level_0/Assets/Interactables/SaveGem/GemSave.png" type="Texture" id=18]
+[ext_resource path="res://Levels/Level_0/Scripts/Interactables/SaveGem/Gem.gd" type="Script" id=19]
+[ext_resource path="res://Levels/Level_0/Scripts/Interactables/Orbs/OrbNode.gd" type="Script" id=20]
+[ext_resource path="res://Levels/Level_0/Assets/Effects/shield_rotate_it.png" type="Texture" id=21]
+[ext_resource path="res://Levels/Level_0/Scripts/Interactables/Orbs/OrbNode2.gd" type="Script" id=22]
+[ext_resource path="res://Levels/Level_0/Assets/Environment/circleBackStuff.png" type="Texture" id=23]
+[ext_resource path="res://Levels/Level_0/Assets/Environment/doorsBackStuff.png" type="Texture" id=24]
+[ext_resource path="res://Levels/Level_0/Assets/Environment/jaliBackStuff.png" type="Texture" id=25]
+[ext_resource path="res://Levels/Level_0/Assets/Environment/LockBackStuff.png" type="Texture" id=26]
+[ext_resource path="res://Levels/Level_0/Assets/Environment/panelBackStuff.png" type="Texture" id=27]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 491.618, 48.3755 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 34.2158, 360.907 )
+
+[sub_resource type="Animation" id=3]
+length = 0.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -0.75, 0.75 ), Vector2( -0.8, 0.8 ), Vector2( -0.75, 0.75 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.278431, 0.0784314, 0.0784314, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("RockDown:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -123.633 ), Vector2( 10.0698, -766.345 ), Vector2( 10.0698, -1586.02 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("RockDown:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("RockUp:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.02783, -2.31323 ), Vector2( 1.02783, 1259.1 ), Vector2( 1.02783, 1881.44 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("RockUp:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("RockUp2:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.4, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 61.2, 61.2221 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("RockUp2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -70.9763, -124.134 ), Vector2( -951.988, -454.957 ), Vector2( -4458.37, -1881.8 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("RockUp3:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.4, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 181.4, 181.392 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("RockUp3:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 70.6353, -122.465 ), Vector2( 960.205, -300.555 ), Vector2( 4360.33, -1560.42 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("RockDown2:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -70.0007, -2.96545 ), Vector2( -1913.15, 492.259 ), Vector2( -3339.99, 1585.16 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("RockDown2:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("RockDown3:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 64.9976, -1.54755 ), Vector2( 1450.99, 143.724 ), Vector2( 2416.22, 139.609 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("RockDown3:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.4, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -241.2, -241.192, -241.192 ]
+}
+
+[sub_resource type="Animation" id=5]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2544.7, 665.691 ), Vector2( 2544.7, 468.349 ), Vector2( 2544.7, 665.691 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "rock_in_mid_air"
+}, {
+"args": [  ],
+"method": "rock_on_ground"
+} ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Default"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2544.7, 665.691 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("RockUp:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1.02783, -2.31323 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("RockUp:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("RockUp2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -70.9763, -124.134 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("RockUp2:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("RockUp3:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 70.6353, -122.465 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("RockUp3:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("RockDown:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -123.633 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("RockDown:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("RockDown2:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -70.0007, -2.96545 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("RockDown2:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("RockDown3:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 64.9976, -1.54755 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("RockDown3:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Blast"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("RockDown:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -123.633 ), Vector2( 10.0698, -766.345 ), Vector2( 10.0698, -1586.02 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("RockDown:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("RockUp:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.02783, -2.31323 ), Vector2( 1.02783, 1259.1 ), Vector2( 1.02783, 1881.44 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("RockUp:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("RockUp2:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.4, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 61.2, 61.2221 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("RockUp2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -70.9763, -124.134 ), Vector2( -951.988, -454.957 ), Vector2( -4458.37, -1881.8 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("RockUp3:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.4, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 181.4, 181.392 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("RockUp3:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 70.6353, -122.465 ), Vector2( 960.205, -300.555 ), Vector2( 4360.33, -1560.42 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("RockDown2:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -70.0007, -2.96545 ), Vector2( -1913.15, 492.259 ), Vector2( -3339.99, 1585.16 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("RockDown2:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("RockDown3:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 64.9976, -1.54755 ), Vector2( 1450.99, 143.724 ), Vector2( 2430.6, 130.633 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("RockDown3:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.4, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -241.2, -241.192 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "BoostUp"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2544.7, 665.691 ), Vector2( 2544.7, 468.349 ), Vector2( 2544.7, 665.691 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "rock_in_mid_air"
+}, {
+"args": [  ],
+"method": "rock_on_ground"
+} ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "Default"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2544.7, 665.691 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("RockUp:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1.02783, -2.31323 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("RockUp:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("RockUp2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -70.9763, -124.134 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("RockUp2:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("RockUp3:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 70.6353, -122.465 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("RockUp3:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("RockDown:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -123.633 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("RockDown:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("RockDown2:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -70.0007, -2.96545 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("RockDown2:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("RockDown3:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 64.9976, -1.54755 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("RockDown3:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 340.264, 184.105 )
+
+[sub_resource type="Animation" id=11]
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("LavaTop1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 0.25 ), Vector2( 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "Boiling"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("LavaTop1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 0.25 ), Vector2( 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "Boiling"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("LavaTop1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 0.25 ), Vector2( 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("LavaTop1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 0.25 ), Vector2( 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("LavaTop1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 0.25 ), Vector2( 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("LavaTop1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 0.25 ), Vector2( 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("LavaTop1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 0.25 ), Vector2( 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "Boiling"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("LavaTop1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 0.25 ), Vector2( 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=19]
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("LavaTop1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 0.25 ), Vector2( 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("LavaTop1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 0.25 ), Vector2( 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "Boiling"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("LavaTop1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 0.25 ), Vector2( 1, 0 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=22]
+extents = Vector2( 23.4348, 22.9361 )
+
+[sub_resource type="Animation" id=23]
+length = 1.8
+loop = true
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath("Wall1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -710, 68.905 ), Vector2( -710, -473.749 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Wall2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.06, 0.96 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -610, 68.905 ), Vector2( -610, -473.749 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Wall3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.12, 1.02 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -510, 65.11 ), Vector2( -510, -466.159 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=24]
+extents = Vector2( 10, 293.322 )
+
+[sub_resource type="Animation" id=25]
+length = 1.8
+loop = true
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath("Wall1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -710, 68.905 ), Vector2( -710, -473.749 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Wall2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.06, 0.96 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -610, 68.905 ), Vector2( -610, -473.749 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Wall3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.12, 1.02 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -510, 65.11 ), Vector2( -510, -466.159 ) ]
+}
+
+[sub_resource type="Animation" id=26]
+length = 1.8
+loop = true
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath("Wall1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -710, 68.905 ), Vector2( -710, -473.749 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Wall2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.06, 0.96 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -610, 68.905 ), Vector2( -610, -473.749 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Wall3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.12, 1.02 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -510, 65.11 ), Vector2( -510, -466.159 ) ]
+}
+
+[sub_resource type="Animation" id=27]
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1.70166, -20.4154 ), Vector2( -1.702, -30.415 ), Vector2( -1.70166, -20.4154 ), Vector2( -1.702, -10.415 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( -1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=28]
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1.70166, -20.4154 ), Vector2( -1.702, -30.415 ), Vector2( -1.70166, -20.4154 ), Vector2( -1.702, -10.415 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( -1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=29]
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1.70166, -20.4154 ), Vector2( -1.702, -30.415 ), Vector2( -1.70166, -20.4154 ), Vector2( -1.702, -10.415 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( -1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=30]
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1.70166, -20.4154 ), Vector2( -1.702, -30.415 ), Vector2( -1.70166, -20.4154 ), Vector2( -1.702, -10.415 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( -1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=31]
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1.70166, -20.4154 ), Vector2( -1.702, -30.415 ), Vector2( -1.70166, -20.4154 ), Vector2( -1.702, -10.415 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( -1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=32]
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1.70166, -20.4154 ), Vector2( -1.702, -30.415 ), Vector2( -1.70166, -20.4154 ), Vector2( -1.702, -10.415 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( -1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=33]
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1.70166, -20.4154 ), Vector2( -1.702, -30.415 ), Vector2( -1.70166, -20.4154 ), Vector2( -1.702, -10.415 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( -1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=34]
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1.70166, -20.4154 ), Vector2( -1.702, -30.415 ), Vector2( -1.70166, -20.4154 ), Vector2( -1.702, -10.415 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( -1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=35]
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1.70166, -20.4154 ), Vector2( -1.702, -30.415 ), Vector2( -1.70166, -20.4154 ), Vector2( -1.702, -10.415 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( -1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=36]
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1.70166, -20.4154 ), Vector2( -1.702, -30.415 ), Vector2( -1.70166, -20.4154 ), Vector2( -1.702, -10.415 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( -1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=37]
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1.70166, -20.4154 ), Vector2( -1.702, -30.415 ), Vector2( -1.70166, -20.4154 ), Vector2( -1.702, -10.415 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( -1, 1 ) ]
+}
+
+[sub_resource type="CircleShape2D" id=38]
+radius = 130.986
+
+[sub_resource type="Animation" id=39]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Area2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.8, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.25, 0.25 ), Vector2( 1, 1 ), Vector2( 0.25, 0.25 ), Vector2( 20, 20 ), Vector2( 1e-005, 1e-005 ) ]
+}
+
+[sub_resource type="Animation" id=40]
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Area2D:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Area2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ) ]
+}
+
+[sub_resource type="Animation" id=41]
+length = 1.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Area2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 1, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.25, 0.25 ), Vector2( 10, 10 ), Vector2( 1e-005, 1e-005 ) ]
+}
+
+[sub_resource type="Animation" id=42]
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Area2D:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Area2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ) ]
+}
+
+[sub_resource type="DynamicFontData" id=43]
+font_path = "res://Levels/Level_0/Fonts/roboto/Roboto-Black.ttf"
+
+[sub_resource type="DynamicFont" id=44]
+size = 32
+font_data = SubResource( 43 )
+
+[node name="Level1" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 224.636, 270 )
+
+[node name="Enclosements" type="Node2D" parent="."]
+
+[node name="Grounds" type="Node2D" parent="Enclosements"]
+
+[node name="Ground" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 659.594, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground"]
+shape = SubResource( 1 )
+
+[node name="Ground10" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 8523.63, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground10"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground10"]
+shape = SubResource( 1 )
+
+[node name="Ground11" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 9510, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground11"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground11"]
+shape = SubResource( 1 )
+
+[node name="Ground12" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 10490, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground12"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground12"]
+shape = SubResource( 1 )
+
+[node name="Ground13" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 11470, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground13"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground13"]
+shape = SubResource( 1 )
+
+[node name="Ground19" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 17320, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground19"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground19"]
+shape = SubResource( 1 )
+
+[node name="Ground14" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 12440, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground14"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground14"]
+shape = SubResource( 1 )
+
+[node name="Ground22" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 18290, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground22"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground22"]
+shape = SubResource( 1 )
+
+[node name="Ground15" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 13430, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground15"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground15"]
+shape = SubResource( 1 )
+
+[node name="Ground20" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 19280, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground20"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground20"]
+shape = SubResource( 1 )
+
+[node name="Ground16" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 14410, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground16"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground16"]
+shape = SubResource( 1 )
+
+[node name="Ground21" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 20260, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground21"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground21"]
+shape = SubResource( 1 )
+
+[node name="Ground17" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 15380, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground17"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground17"]
+shape = SubResource( 1 )
+
+[node name="Ground23" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 21230, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground23"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground23"]
+shape = SubResource( 1 )
+
+[node name="Ground18" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 16350, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground18"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground18"]
+shape = SubResource( 1 )
+
+[node name="Ground24" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 22200, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground24"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground24"]
+shape = SubResource( 1 )
+
+[node name="Ground25" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 23170, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground25"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground25"]
+shape = SubResource( 1 )
+
+[node name="Ground26" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 24150, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground26"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground26"]
+shape = SubResource( 1 )
+
+[node name="Ground27" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 25110, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground27"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground27"]
+shape = SubResource( 1 )
+
+[node name="Ground28" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 26070, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground28"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground28"]
+shape = SubResource( 1 )
+
+[node name="Ground29" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 26300, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground29"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground29"]
+shape = SubResource( 1 )
+
+[node name="Ground30" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 29080, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground30"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground30"]
+shape = SubResource( 1 )
+
+[node name="Ground31" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 30060, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground31"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground31"]
+shape = SubResource( 1 )
+
+[node name="Ground34" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 32020, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground34"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground34"]
+shape = SubResource( 1 )
+
+[node name="Ground32" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 31050, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground32"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground32"]
+shape = SubResource( 1 )
+
+[node name="Ground36" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 34970, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground36"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground36"]
+shape = SubResource( 1 )
+
+[node name="Ground39" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 35950, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground39"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground39"]
+shape = SubResource( 1 )
+
+[node name="Ground33" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 33010, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground33"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground33"]
+shape = SubResource( 1 )
+
+[node name="Ground38" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 36930, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground38"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground38"]
+shape = SubResource( 1 )
+
+[node name="Ground35" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 33990, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground35"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground35"]
+shape = SubResource( 1 )
+
+[node name="Ground37" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 37910, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground37"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground37"]
+shape = SubResource( 1 )
+
+[node name="Ground40" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 38880, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground40"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground40"]
+shape = SubResource( 1 )
+
+[node name="Ground41" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 41550, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground41"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground41"]
+shape = SubResource( 1 )
+
+[node name="Ground42" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 42530, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground42"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground42"]
+shape = SubResource( 1 )
+
+[node name="Ground43" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 43510, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground43"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground43"]
+shape = SubResource( 1 )
+
+[node name="Ground44" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 44400, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground44"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground44"]
+shape = SubResource( 1 )
+
+[node name="Ground6" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 4581.55, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground6"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground6"]
+shape = SubResource( 1 )
+
+[node name="Ground5" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( -327.05, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground5"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground5"]
+shape = SubResource( 1 )
+
+[node name="Ground2" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 1643.95, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground2"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground2"]
+shape = SubResource( 1 )
+
+[node name="Ground8" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 5565.91, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground8"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground8"]
+shape = SubResource( 1 )
+
+[node name="Ground3" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 2623.27, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground3"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground3"]
+shape = SubResource( 1 )
+
+[node name="Ground7" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 6545.23, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground7"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground7"]
+shape = SubResource( 1 )
+
+[node name="Ground4" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 3610.15, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground4"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground4"]
+shape = SubResource( 1 )
+
+[node name="Ground9" type="StaticBody2D" parent="Enclosements/Grounds"]
+editor/display_folded = true
+position = Vector2( 8490, 713.973 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Grounds/Ground9"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Grounds/Ground9"]
+shape = SubResource( 1 )
+
+[node name="Roofs" type="Node2D" parent="Enclosements"]
+
+[node name="Roof" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 639.77, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof"]
+texture = ExtResource( 4 )
+
+[node name="Roof10" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 5625.58, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof10"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof10"]
+texture = ExtResource( 4 )
+
+[node name="Roof2" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( -358.258, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof2"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof2"]
+texture = ExtResource( 4 )
+
+[node name="Roof9" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 4627.55, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof9"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof9"]
+texture = ExtResource( 4 )
+
+[node name="Roof3" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 1632.92, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof3"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof3"]
+texture = ExtResource( 4 )
+
+[node name="Roof6" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 6618.73, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof6"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof6"]
+texture = ExtResource( 4 )
+
+[node name="Roof4" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 2628.5, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof4"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof4"]
+texture = ExtResource( 4 )
+
+[node name="Roof7" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 7614.31, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof7"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof7"]
+texture = ExtResource( 4 )
+
+[node name="Roof5" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 3620.84, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof5"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof5"]
+texture = ExtResource( 4 )
+
+[node name="Roof8" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 8606.65, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof8"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof8"]
+texture = ExtResource( 4 )
+
+[node name="Roof21" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 14370, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof21"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof21"]
+texture = ExtResource( 4 )
+
+[node name="Roof22" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 15820, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof22"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof22"]
+texture = ExtResource( 4 )
+
+[node name="Roof11" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 9110, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof11"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof11"]
+texture = ExtResource( 4 )
+
+[node name="Roof19" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 14873.4, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof19"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof19"]
+texture = ExtResource( 4 )
+
+[node name="Roof25" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 16323.4, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof25"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof25"]
+texture = ExtResource( 4 )
+
+[node name="Roof12" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 10830, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof12"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof12"]
+texture = ExtResource( 4 )
+
+[node name="Roof17" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 16593.4, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof17"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof17"]
+texture = ExtResource( 4 )
+
+[node name="Roof27" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 18043.4, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof27"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof27"]
+texture = ExtResource( 4 )
+
+[node name="Roof13" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 11810, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof13"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof13"]
+texture = ExtResource( 4 )
+
+[node name="Roof16" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 17573.4, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof16"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof16"]
+texture = ExtResource( 4 )
+
+[node name="Roof23" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 19023.4, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof23"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof23"]
+texture = ExtResource( 4 )
+
+[node name="Roof14" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 12400, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof14"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof14"]
+texture = ExtResource( 4 )
+
+[node name="Roof18" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 18163.4, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof18"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof18"]
+texture = ExtResource( 4 )
+
+[node name="Roof24" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 19613.4, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof24"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof24"]
+texture = ExtResource( 4 )
+
+[node name="Roof15" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 13380, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof15"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof15"]
+texture = ExtResource( 4 )
+
+[node name="Roof20" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 19143.4, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof20"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof20"]
+texture = ExtResource( 4 )
+
+[node name="Roof26" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 20593.4, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof26"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof26"]
+texture = ExtResource( 4 )
+
+[node name="Roof28" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 21590, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof28"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof28"]
+texture = ExtResource( 4 )
+
+[node name="Roof29" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 22580, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof29"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof29"]
+texture = ExtResource( 4 )
+
+[node name="Roof30" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 23570, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof30"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof30"]
+texture = ExtResource( 4 )
+
+[node name="Roof31" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 24560, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof31"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof31"]
+texture = ExtResource( 4 )
+
+[node name="Roof32" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 25540, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof32"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof32"]
+texture = ExtResource( 4 )
+
+[node name="Roof33" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 26260, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof33"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof33"]
+texture = ExtResource( 4 )
+
+[node name="Roof34" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 29010, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof34"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof34"]
+texture = ExtResource( 4 )
+
+[node name="Roof35" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 30000, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof35"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof35"]
+texture = ExtResource( 4 )
+
+[node name="Roof36" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 31000, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof36"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof36"]
+texture = ExtResource( 4 )
+
+[node name="Roof37" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 31990, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof37"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof37"]
+texture = ExtResource( 4 )
+
+[node name="Roof38" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 32970, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof38"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof38"]
+texture = ExtResource( 4 )
+
+[node name="Roof39" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 33950, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof39"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof39"]
+texture = ExtResource( 4 )
+
+[node name="Roof40" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 34950, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof40"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof40"]
+texture = ExtResource( 4 )
+
+[node name="Roof41" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 35950, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof41"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof41"]
+texture = ExtResource( 4 )
+
+[node name="Roof42" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 36950, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof42"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof42"]
+texture = ExtResource( 4 )
+
+[node name="Roof43" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 37910, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof43"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof43"]
+texture = ExtResource( 4 )
+
+[node name="Roof44" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 38750, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof44"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof44"]
+texture = ExtResource( 4 )
+
+[node name="Roof45" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 41590, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof45"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof45"]
+texture = ExtResource( 4 )
+
+[node name="Roof46" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 42500, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof46"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof46"]
+texture = ExtResource( 4 )
+
+[node name="Roof47" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 43500, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof47"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof47"]
+texture = ExtResource( 4 )
+
+[node name="Roof48" type="StaticBody2D" parent="Enclosements/Roofs"]
+editor/display_folded = true
+position = Vector2( 44300, 22.7981 )
+collision_layer = 16
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Roofs/Roof48"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Roofs/Roof48"]
+texture = ExtResource( 4 )
+
+[node name="Walls" type="Node2D" parent="Enclosements"]
+position = Vector2( 612.556, 0 )
+z_index = -1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Enclosements/Walls"]
+editor/display_folded = true
+position = Vector2( -645.814, 345.512 )
+scale = Vector2( 2, 1 )
+collision_layer = 16
+collision_mask = 15
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Walls/StaticBody2D"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Walls/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="Enclosements/Walls"]
+editor/display_folded = true
+position = Vector2( 42587.4, 345.512 )
+scale = Vector2( 2, 1 )
+collision_layer = 16
+collision_mask = 15
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Walls/StaticBody2D8"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Walls/StaticBody2D8"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Enclosements/Walls"]
+editor/display_folded = true
+position = Vector2( 715.184, 912.595 )
+scale = Vector2( 2, 1 )
+collision_layer = 16
+collision_mask = 15
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Walls/StaticBody2D2"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Walls/StaticBody2D2"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Enclosements/Walls"]
+editor/display_folded = true
+position = Vector2( 1168.85, 912.595 )
+scale = Vector2( 2, 1 )
+collision_layer = 16
+collision_mask = 15
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Walls/StaticBody2D3"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Walls/StaticBody2D3"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="Enclosements/Walls"]
+editor/display_folded = true
+position = Vector2( 2856.75, 912.595 )
+scale = Vector2( 2, 1 )
+collision_layer = 16
+collision_mask = 15
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Walls/StaticBody2D5"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Walls/StaticBody2D5"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="Enclosements/Walls"]
+editor/display_folded = true
+position = Vector2( 3110.27, 805.85 )
+scale = Vector2( 2, 1 )
+collision_layer = 16
+collision_mask = 15
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Walls/StaticBody2D6"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Walls/StaticBody2D6"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="Enclosements/Walls"]
+editor/display_folded = true
+position = Vector2( 3370.46, 672.419 )
+scale = Vector2( 2, 1 )
+collision_layer = 16
+collision_mask = 15
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Walls/StaticBody2D7"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Walls/StaticBody2D7"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Enclosements/Walls"]
+editor/display_folded = true
+position = Vector2( 1429.04, 772.492 )
+scale = Vector2( 2, 1 )
+collision_layer = 16
+collision_mask = 15
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Enclosements/Walls/StaticBody2D4"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosements/Walls/StaticBody2D4"]
+shape = SubResource( 2 )
+
+[node name="Enemies" type="Node2D" parent="."]
+editor/display_folded = true
+position = Vector2( -2415.97, -28.6998 )
+
+[node name="RobotZombies" type="Node2D" parent="Enemies"]
+
+[node name="RobotZombie5" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 1197.25, 1216.13 )
+
+[node name="RobotZombie6" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 333.03, 548.299 )
+
+[node name="RobotZombie7" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 5491.77, 559.25 )
+
+[node name="RobotZombie8" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 6732.68, 559.25 )
+
+[node name="RobotZombie9" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 6939.49, 559.25 )
+
+[node name="RobotZombie10" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 7213.03, 559.25 )
+
+[node name="RobotZombie11" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 7466.55, 559.25 )
+
+[node name="RobotZombie12" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 10863, 559.25 )
+
+[node name="RobotZombie17" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 13109, 559.25 )
+
+[node name="RobotZombie13" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 11026, 559.25 )
+
+[node name="RobotZombie16" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 13272.1, 559.25 )
+
+[node name="RobotZombie19" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 16116, 559.25 )
+
+[node name="RobotZombie20" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 16416, 559.25 )
+
+[node name="RobotZombie21" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 17536, 559.25 )
+
+[node name="RobotZombie22" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 17346, 559.25 )
+
+[node name="RobotZombie23" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 18826, 559.25 )
+
+[node name="RobotZombie24" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 19116, 559.25 )
+
+[node name="RobotZombie25" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 19736, 559.25 )
+
+[node name="RobotZombie26" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 20176, 559.25 )
+
+[node name="RobotZombie27" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 22656, 559.25 )
+
+[node name="RobotZombie28" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 22926, 559.25 )
+
+[node name="RobotZombie29" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 24336, 559.25 )
+
+[node name="RobotZombie30" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 24546, 559.25 )
+
+[node name="RobotZombie31" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 24136, 559.25 )
+
+[node name="RobotZombie37" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 32466, 559.25 )
+
+[node name="RobotZombie38" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 35446, 559.25 )
+
+[node name="RobotZombie41" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 36066, 559.25 )
+
+[node name="RobotZombie42" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 36426, 559.25 )
+
+[node name="RobotZombie43" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 36676, 559.25 )
+
+[node name="RobotZombie44" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 37176, 559.25 )
+
+[node name="RobotZombie45" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 37536, 559.25 )
+
+[node name="RobotZombie46" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 38556, 559.25 )
+
+[node name="RobotZombie47" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 38852, 559.25 )
+
+[node name="RobotZombie48" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 39166, 559.25 )
+
+[node name="RobotZombie50" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 51668.8, 559.25 )
+
+[node name="RobotZombie49" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 39406, 559.25 )
+
+[node name="RobotZombie39" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 32246, 559.25 )
+
+[node name="RobotZombie40" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 31846, 559.25 )
+
+[node name="RobotZombie32" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 26166, 559.25 )
+
+[node name="RobotZombie33" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 26416, 559.25 )
+
+[node name="RobotZombie34" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 25956, 559.25 )
+
+[node name="RobotZombie35" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 27106, 559.25 )
+
+[node name="RobotZombie36" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 27336, 559.25 )
+
+[node name="RobotZombie14" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 10699.9, 559.25 )
+
+[node name="RobotZombie15" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 12796, 559.25 )
+
+[node name="RobotZombie18" parent="Enemies/RobotZombies" instance=ExtResource( 6 )]
+position = Vector2( 12946, 559.25 )
+
+[node name="Hybrulls" type="Node2D" parent="Enemies"]
+editor/display_folded = true
+position = Vector2( -330.139, 303.482 )
+
+[node name="Hybrull" parent="Enemies/Hybrulls" instance=ExtResource( 7 )]
+position = Vector2( 629.857, 644.796 )
+
+[node name="Monborgs" type="Node2D" parent="Enemies"]
+position = Vector2( -112.916, 968.847 )
+
+[node name="Monborg" parent="Enemies/Monborgs" instance=ExtResource( 8 )]
+position = Vector2( 14638.9, -335.709 )
+
+[node name="Monborg3" parent="Enemies/Monborgs" instance=ExtResource( 8 )]
+position = Vector2( 15968.9, -335.709 )
+
+[node name="Monborg4" parent="Enemies/Monborgs" instance=ExtResource( 8 )]
+position = Vector2( 18623.2, -335.709 )
+
+[node name="Monborg6" parent="Enemies/Monborgs" instance=ExtResource( 8 )]
+position = Vector2( 23264.9, -335.709 )
+
+[node name="Monborg7" parent="Enemies/Monborgs" instance=ExtResource( 8 )]
+position = Vector2( 24888.9, -335.709 )
+
+[node name="Monborg8" parent="Enemies/Monborgs" instance=ExtResource( 8 )]
+position = Vector2( 25858.9, -335.709 )
+
+[node name="Monborg9" parent="Enemies/Monborgs" instance=ExtResource( 8 )]
+position = Vector2( 26988.9, -335.709 )
+
+[node name="Monborg10" parent="Enemies/Monborgs" instance=ExtResource( 8 )]
+position = Vector2( 32068.9, -335.709 )
+
+[node name="Monborg11" parent="Enemies/Monborgs" instance=ExtResource( 8 )]
+position = Vector2( 32898.9, -335.709 )
+
+[node name="Monborg12" parent="Enemies/Monborgs" instance=ExtResource( 8 )]
+position = Vector2( 35898.9, -335.709 )
+
+[node name="Monborg13" parent="Enemies/Monborgs" instance=ExtResource( 8 )]
+position = Vector2( 36968.9, -335.709 )
+
+[node name="Monborg14" parent="Enemies/Monborgs" instance=ExtResource( 8 )]
+position = Vector2( 37977.9, -335.709 )
+
+[node name="Monborg15" parent="Enemies/Monborgs" instance=ExtResource( 8 )]
+position = Vector2( 38378.9, -335.709 )
+
+[node name="Monborg16" parent="Enemies/Monborgs" instance=ExtResource( 8 )]
+position = Vector2( 39738.9, -335.709 )
+
+[node name="Monborg5" parent="Enemies/Monborgs" instance=ExtResource( 8 )]
+position = Vector2( 17818.9, -335.709 )
+
+[node name="Monborg2" parent="Enemies/Monborgs" instance=ExtResource( 8 )]
+position = Vector2( 1205.06, -330.042 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Bar" type="Node2D" parent="CanvasLayer"]
+editor/display_folded = true
+position = Vector2( 173.001, 94.0003 )
+scale = Vector2( -0.75, 0.75 )
+
+[node name="UnderBar" type="Sprite" parent="CanvasLayer/Bar"]
+position = Vector2( 0.80658, 0.184837 )
+texture = ExtResource( 9 )
+
+[node name="HealthBar" type="Sprite" parent="CanvasLayer/Bar"]
+position = Vector2( 129.055, -21.2413 )
+texture = ExtResource( 10 )
+centered = false
+offset = Vector2( -258, -20 )
+
+[node name="ManaBar" type="Sprite" parent="CanvasLayer/Bar"]
+position = Vector2( 129.621, 26.8307 )
+texture = ExtResource( 11 )
+offset = Vector2( -129, 0 )
+
+[node name="OverBar" type="Sprite" parent="CanvasLayer/Bar"]
+texture = ExtResource( 12 )
+
+[node name="BarAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Bar"]
+anims/PlayerHit = SubResource( 3 )
+
+[node name="Interactables" type="Node2D" parent="."]
+position = Vector2( 5297.31, -207.816 )
+
+[node name="RockCover" type="Node2D" parent="Interactables"]
+position = Vector2( 19509.9, 186.292 )
+
+[node name="Rock" type="Node2D" parent="Interactables/RockCover"]
+editor/display_folded = true
+position = Vector2( 2544.7, 665.691 )
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 13 )
+
+[node name="RockUp" type="StaticBody2D" parent="Interactables/RockCover/Rock"]
+editor/display_folded = true
+position = Vector2( 1.02783, 1881.44 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/RockCover/Rock/RockUp"]
+polygon = PoolVector2Array( -1.58374, -63.4724, 69.5637, 57.8282, -71.5649, 60.1609 )
+
+[node name="Sprite" type="Sprite" parent="Interactables/RockCover/Rock/RockUp"]
+texture = ExtResource( 14 )
+
+[node name="RockUp2" type="StaticBody2D" parent="Interactables/RockCover/Rock"]
+editor/display_folded = true
+position = Vector2( -4458.37, -1881.8 )
+rotation = 1.06853
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/RockCover/Rock/RockUp2"]
+polygon = PoolVector2Array( -1.58374, -63.4724, 69.5637, 57.8282, -71.5649, 60.1609 )
+
+[node name="Sprite" type="Sprite" parent="Interactables/RockCover/Rock/RockUp2"]
+texture = ExtResource( 14 )
+
+[node name="RockUp3" type="StaticBody2D" parent="Interactables/RockCover/Rock"]
+editor/display_folded = true
+position = Vector2( 4360.33, -1560.42 )
+rotation = 3.16589
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/RockCover/Rock/RockUp3"]
+polygon = PoolVector2Array( -1.58374, -63.4724, 69.5637, 57.8282, -71.5649, 60.1609 )
+
+[node name="Sprite" type="Sprite" parent="Interactables/RockCover/Rock/RockUp3"]
+texture = ExtResource( 14 )
+
+[node name="RockDown" type="StaticBody2D" parent="Interactables/RockCover/Rock"]
+editor/display_folded = true
+position = Vector2( 10.0698, -1586.02 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/RockCover/Rock/RockDown"]
+polygon = PoolVector2Array( -1.58374, 58.9947, 70.7302, -59.9733, -72.7312, -62.306 )
+
+[node name="Sprite" type="Sprite" parent="Interactables/RockCover/Rock/RockDown"]
+texture = ExtResource( 15 )
+
+[node name="RockDown2" type="StaticBody2D" parent="Interactables/RockCover/Rock"]
+editor/display_folded = true
+position = Vector2( -3339.99, 1585.16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/RockCover/Rock/RockDown2"]
+polygon = PoolVector2Array( -1.58374, 58.9947, 70.7302, -59.9733, -72.7312, -62.306 )
+
+[node name="Sprite" type="Sprite" parent="Interactables/RockCover/Rock/RockDown2"]
+texture = ExtResource( 15 )
+
+[node name="RockDown3" type="StaticBody2D" parent="Interactables/RockCover/Rock"]
+editor/display_folded = true
+position = Vector2( 2416.22, 139.609 )
+rotation = -4.20959
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/RockCover/Rock/RockDown3"]
+polygon = PoolVector2Array( -1.58374, 58.9947, 70.7302, -59.9733, -72.7312, -62.306 )
+
+[node name="Sprite" type="Sprite" parent="Interactables/RockCover/Rock/RockDown3"]
+texture = ExtResource( 15 )
+
+[node name="Area2D" type="Area2D" parent="Interactables/RockCover/Rock"]
+editor/display_folded = true
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/RockCover/Rock/Area2D"]
+polygon = PoolVector2Array( -73.7217, -186.072, 69.9756, -183.677, 140.626, -65.1271, 70.9985, 56.0808, -70.1396, 57.551, -142.179, -67.4148 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Interactables/RockCover/Rock"]
+autoplay = "Default"
+anims/Blast = SubResource( 4 )
+anims/BoostUp = SubResource( 5 )
+anims/Default = SubResource( 6 )
+
+[node name="RockCover2" type="Node2D" parent="Interactables"]
+position = Vector2( 32012.7, 186.292 )
+
+[node name="Rock" type="Node2D" parent="Interactables/RockCover2"]
+position = Vector2( 2544.7, 665.691 )
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 13 )
+
+[node name="RockUp" type="StaticBody2D" parent="Interactables/RockCover2/Rock"]
+editor/display_folded = true
+position = Vector2( 1.02783, 1881.44 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/RockCover2/Rock/RockUp"]
+polygon = PoolVector2Array( -1.58374, -63.4724, 69.5637, 57.8282, -71.5649, 60.1609 )
+
+[node name="Sprite" type="Sprite" parent="Interactables/RockCover2/Rock/RockUp"]
+texture = ExtResource( 14 )
+
+[node name="RockUp2" type="StaticBody2D" parent="Interactables/RockCover2/Rock"]
+editor/display_folded = true
+position = Vector2( -4458.37, -1881.8 )
+rotation = 1.06853
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/RockCover2/Rock/RockUp2"]
+polygon = PoolVector2Array( -1.58374, -63.4724, 69.5637, 57.8282, -71.5649, 60.1609 )
+
+[node name="Sprite" type="Sprite" parent="Interactables/RockCover2/Rock/RockUp2"]
+texture = ExtResource( 14 )
+
+[node name="RockUp3" type="StaticBody2D" parent="Interactables/RockCover2/Rock"]
+editor/display_folded = true
+position = Vector2( 4360.33, -1560.42 )
+rotation = 3.16589
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/RockCover2/Rock/RockUp3"]
+polygon = PoolVector2Array( -1.58374, -63.4724, 69.5637, 57.8282, -71.5649, 60.1609 )
+
+[node name="Sprite" type="Sprite" parent="Interactables/RockCover2/Rock/RockUp3"]
+texture = ExtResource( 14 )
+
+[node name="RockDown" type="StaticBody2D" parent="Interactables/RockCover2/Rock"]
+editor/display_folded = true
+position = Vector2( 10.0698, -1586.02 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/RockCover2/Rock/RockDown"]
+polygon = PoolVector2Array( -1.58374, 58.9947, 70.7302, -59.9733, -72.7312, -62.306 )
+
+[node name="Sprite" type="Sprite" parent="Interactables/RockCover2/Rock/RockDown"]
+texture = ExtResource( 15 )
+
+[node name="RockDown2" type="StaticBody2D" parent="Interactables/RockCover2/Rock"]
+editor/display_folded = true
+position = Vector2( -3339.99, 1585.16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/RockCover2/Rock/RockDown2"]
+polygon = PoolVector2Array( -1.58374, 58.9947, 70.7302, -59.9733, -72.7312, -62.306 )
+
+[node name="Sprite" type="Sprite" parent="Interactables/RockCover2/Rock/RockDown2"]
+texture = ExtResource( 15 )
+
+[node name="RockDown3" type="StaticBody2D" parent="Interactables/RockCover2/Rock"]
+editor/display_folded = true
+position = Vector2( 2430.6, 130.633 )
+rotation = -4.20959
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/RockCover2/Rock/RockDown3"]
+polygon = PoolVector2Array( -1.58374, 58.9947, 70.7302, -59.9733, -72.7312, -62.306 )
+
+[node name="Sprite" type="Sprite" parent="Interactables/RockCover2/Rock/RockDown3"]
+texture = ExtResource( 15 )
+
+[node name="Area2D" type="Area2D" parent="Interactables/RockCover2/Rock"]
+editor/display_folded = true
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/RockCover2/Rock/Area2D"]
+polygon = PoolVector2Array( -73.7217, -186.072, 69.9756, -183.677, 140.626, -65.1271, 70.9985, 56.0808, -70.1396, 57.551, -142.179, -67.4148 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Interactables/RockCover2/Rock"]
+autoplay = "Default"
+anims/Blast = SubResource( 7 )
+anims/BoostUp = SubResource( 8 )
+anims/Default = SubResource( 9 )
+
+[node name="Lava" type="Node2D" parent="Interactables"]
+position = Vector2( 21846.6, 1063.36 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="LavaTop1" type="Sprite" parent="Interactables/Lava"]
+position = Vector2( 0, -183.596 )
+texture = ExtResource( 16 )
+centered = false
+offset = Vector2( -345, -69 )
+
+[node name="LavaBottom" type="Sprite" parent="Interactables/Lava"]
+texture = ExtResource( 17 )
+
+[node name="Area2D" type="Area2D" parent="Interactables/Lava/LavaBottom" groups=[
+"KillerArea",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Lava/LavaBottom/Area2D"]
+shape = SubResource( 10 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Interactables/Lava"]
+autoplay = "Boiling"
+anims/Boiling = SubResource( 11 )
+
+[node name="Lava7" type="Node2D" parent="Interactables"]
+editor/display_folded = true
+position = Vector2( 34422.7, 1063.36 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="LavaTop1" type="Sprite" parent="Interactables/Lava7"]
+position = Vector2( 0, -183.596 )
+texture = ExtResource( 16 )
+centered = false
+offset = Vector2( -345, -69 )
+
+[node name="LavaBottom" type="Sprite" parent="Interactables/Lava7"]
+texture = ExtResource( 17 )
+
+[node name="Area2D" type="Area2D" parent="Interactables/Lava7/LavaBottom" groups=[
+"KillerArea",
+]]
+editor/display_folded = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Lava7/LavaBottom/Area2D"]
+shape = SubResource( 10 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Interactables/Lava7"]
+autoplay = "Boiling"
+anims/Boiling = SubResource( 12 )
+
+[node name="Lava10" type="Node2D" parent="Interactables"]
+editor/display_folded = true
+position = Vector2( 1432.69, 2107.82 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="LavaTop1" type="Sprite" parent="Interactables/Lava10"]
+position = Vector2( 0, -183.596 )
+texture = ExtResource( 16 )
+centered = false
+offset = Vector2( -345, -69 )
+
+[node name="LavaBottom" type="Sprite" parent="Interactables/Lava10"]
+texture = ExtResource( 17 )
+
+[node name="Area2D" type="Area2D" parent="Interactables/Lava10/LavaBottom" groups=[
+"KillerArea",
+]]
+editor/display_folded = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Lava10/LavaBottom/Area2D"]
+shape = SubResource( 10 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Interactables/Lava10"]
+autoplay = "Boiling"
+anims/Boiling = SubResource( 13 )
+
+[node name="Lava4" type="Node2D" parent="Interactables"]
+position = Vector2( 2082.69, 1063.36 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="LavaTop1" type="Sprite" parent="Interactables/Lava4"]
+position = Vector2( 0, -183.596 )
+texture = ExtResource( 16 )
+centered = false
+offset = Vector2( -345, -69 )
+
+[node name="LavaBottom" type="Sprite" parent="Interactables/Lava4"]
+texture = ExtResource( 17 )
+
+[node name="Area2D" type="Area2D" parent="Interactables/Lava4/LavaBottom" groups=[
+"KillerArea",
+]]
+editor/display_folded = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Lava4/LavaBottom/Area2D"]
+shape = SubResource( 10 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Interactables/Lava4"]
+autoplay = "Boiling"
+anims/Boiling = SubResource( 14 )
+
+[node name="Lava5" type="Node2D" parent="Interactables"]
+editor/display_folded = true
+position = Vector2( 2352.69, 1063.36 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="LavaTop1" type="Sprite" parent="Interactables/Lava5"]
+position = Vector2( 0, -183.596 )
+texture = ExtResource( 16 )
+centered = false
+offset = Vector2( -345, -69 )
+
+[node name="LavaBottom" type="Sprite" parent="Interactables/Lava5"]
+texture = ExtResource( 17 )
+
+[node name="Area2D" type="Area2D" parent="Interactables/Lava5/LavaBottom" groups=[
+"KillerArea",
+]]
+editor/display_folded = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Lava5/LavaBottom/Area2D"]
+shape = SubResource( 10 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Interactables/Lava5"]
+autoplay = "Boiling"
+anims/Boiling = SubResource( 15 )
+
+[node name="Lava2" type="Node2D" parent="Interactables"]
+editor/display_folded = true
+position = Vector2( 22533, 1063.36 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="LavaTop1" type="Sprite" parent="Interactables/Lava2"]
+position = Vector2( 0, -183.596 )
+texture = ExtResource( 16 )
+centered = false
+offset = Vector2( -345, -69 )
+
+[node name="LavaBottom" type="Sprite" parent="Interactables/Lava2"]
+texture = ExtResource( 17 )
+
+[node name="Area2D" type="Area2D" parent="Interactables/Lava2/LavaBottom" groups=[
+"KillerArea",
+]]
+editor/display_folded = true
+position = Vector2( -262.614, 3.70123 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Lava2/LavaBottom/Area2D"]
+shape = SubResource( 10 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Interactables/Lava2"]
+autoplay = "Boiling"
+anims/Boiling = SubResource( 16 )
+
+[node name="Lava8" type="Node2D" parent="Interactables"]
+editor/display_folded = true
+position = Vector2( 35035.9, 1063.36 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="LavaTop1" type="Sprite" parent="Interactables/Lava8"]
+position = Vector2( 0, -183.596 )
+texture = ExtResource( 16 )
+centered = false
+offset = Vector2( -345, -69 )
+
+[node name="LavaBottom" type="Sprite" parent="Interactables/Lava8"]
+texture = ExtResource( 17 )
+
+[node name="Area2D" type="Area2D" parent="Interactables/Lava8/LavaBottom" groups=[
+"KillerArea",
+]]
+editor/display_folded = true
+position = Vector2( -262.614, 3.70123 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Lava8/LavaBottom/Area2D"]
+shape = SubResource( 10 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Interactables/Lava8"]
+autoplay = "Boiling"
+anims/Boiling = SubResource( 17 )
+
+[node name="Lava9" type="Node2D" parent="Interactables"]
+editor/display_folded = true
+position = Vector2( 2045.89, 2107.82 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="LavaTop1" type="Sprite" parent="Interactables/Lava9"]
+position = Vector2( 0, -183.596 )
+texture = ExtResource( 16 )
+centered = false
+offset = Vector2( -345, -69 )
+
+[node name="LavaBottom" type="Sprite" parent="Interactables/Lava9"]
+texture = ExtResource( 17 )
+
+[node name="Area2D" type="Area2D" parent="Interactables/Lava9/LavaBottom" groups=[
+"KillerArea",
+]]
+editor/display_folded = true
+position = Vector2( -262.614, 3.70123 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Lava9/LavaBottom/Area2D"]
+shape = SubResource( 10 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Interactables/Lava9"]
+autoplay = "Boiling"
+anims/Boiling = SubResource( 18 )
+
+[node name="Lava3" type="Node2D" parent="Interactables"]
+editor/display_folded = true
+position = Vector2( 22944.4, 1063.36 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="LavaTop1" type="Sprite" parent="Interactables/Lava3"]
+position = Vector2( 0, -183.596 )
+texture = ExtResource( 16 )
+centered = false
+offset = Vector2( -345, -69 )
+
+[node name="LavaBottom" type="Sprite" parent="Interactables/Lava3"]
+texture = ExtResource( 17 )
+
+[node name="Area2D" type="Area2D" parent="Interactables/Lava3/LavaBottom" groups=[
+"KillerArea",
+]]
+editor/display_folded = true
+position = Vector2( -0.353516, 3.70123 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Lava3/LavaBottom/Area2D"]
+shape = SubResource( 10 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Interactables/Lava3"]
+autoplay = "Boiling"
+anims/Boiling = SubResource( 19 )
+
+[node name="Lava6" type="Node2D" parent="Interactables"]
+editor/display_folded = true
+position = Vector2( 35447.2, 1063.36 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="LavaTop1" type="Sprite" parent="Interactables/Lava6"]
+position = Vector2( 0, -183.596 )
+texture = ExtResource( 16 )
+centered = false
+offset = Vector2( -345, -69 )
+
+[node name="LavaBottom" type="Sprite" parent="Interactables/Lava6"]
+texture = ExtResource( 17 )
+
+[node name="Area2D" type="Area2D" parent="Interactables/Lava6/LavaBottom" groups=[
+"KillerArea",
+]]
+editor/display_folded = true
+position = Vector2( -0.353516, 3.70123 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Lava6/LavaBottom/Area2D"]
+shape = SubResource( 10 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Interactables/Lava6"]
+autoplay = "Boiling"
+anims/Boiling = SubResource( 20 )
+
+[node name="Lava11" type="Node2D" parent="Interactables"]
+editor/display_folded = true
+position = Vector2( 2457.19, 2107.82 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="LavaTop1" type="Sprite" parent="Interactables/Lava11"]
+position = Vector2( 0, -183.596 )
+texture = ExtResource( 16 )
+centered = false
+offset = Vector2( -345, -69 )
+
+[node name="LavaBottom" type="Sprite" parent="Interactables/Lava11"]
+texture = ExtResource( 17 )
+
+[node name="Area2D" type="Area2D" parent="Interactables/Lava11/LavaBottom" groups=[
+"KillerArea",
+]]
+editor/display_folded = true
+position = Vector2( -0.353516, 3.70123 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Lava11/LavaBottom/Area2D"]
+shape = SubResource( 10 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Interactables/Lava11"]
+autoplay = "Boiling"
+anims/Boiling = SubResource( 21 )
+
+[node name="WallPuzzles" type="Node2D" parent="."]
+position = Vector2( 753.886, 1581.92 )
+
+[node name="Type1Puzzles" type="Node2D" parent="WallPuzzles"]
+position = Vector2( -1806.32, 0 )
+
+[node name="Puzzle1" type="Node2D" parent="WallPuzzles/Type1Puzzles"]
+editor/display_folded = true
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallPuzzles/Type1Puzzles/Puzzle1"]
+editor/display_folded = true
+position = Vector2( 3649.76, 163.313 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type1Puzzles/Puzzle1/StaticBody2D"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type1Puzzles/Puzzle1/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WallPuzzles/Type1Puzzles/Puzzle1"]
+editor/display_folded = true
+position = Vector2( 3649.76, 911.63 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type1Puzzles/Puzzle1/StaticBody2D2"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type1Puzzles/Puzzle1/StaticBody2D2"]
+shape = SubResource( 2 )
+
+[node name="Type2Puzzles" type="Node2D" parent="WallPuzzles"]
+position = Vector2( -2629.47, -335.116 )
+
+[node name="Puzzle1" type="Node2D" parent="WallPuzzles/Type2Puzzles"]
+editor/display_folded = true
+position = Vector2( 3566.48, -1254.25 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallPuzzles/Type2Puzzles/Puzzle1"]
+position = Vector2( 3649.76, 163.313 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type2Puzzles/Puzzle1/StaticBody2D"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type2Puzzles/Puzzle1/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WallPuzzles/Type2Puzzles/Puzzle1"]
+editor/display_folded = true
+position = Vector2( 3649.76, 911.63 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type2Puzzles/Puzzle1/StaticBody2D2"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type2Puzzles/Puzzle1/StaticBody2D2"]
+shape = SubResource( 2 )
+
+[node name="Puzzle2" type="Node2D" parent="WallPuzzles/Type2Puzzles"]
+editor/display_folded = true
+position = Vector2( 4134.52, -713.157 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallPuzzles/Type2Puzzles/Puzzle2"]
+position = Vector2( 3649.76, 163.313 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type2Puzzles/Puzzle2/StaticBody2D"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type2Puzzles/Puzzle2/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WallPuzzles/Type2Puzzles/Puzzle2"]
+editor/display_folded = true
+position = Vector2( 3649.76, 911.63 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type2Puzzles/Puzzle2/StaticBody2D2"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type2Puzzles/Puzzle2/StaticBody2D2"]
+shape = SubResource( 2 )
+
+[node name="Puzzle3" type="Node2D" parent="WallPuzzles/Type2Puzzles"]
+editor/display_folded = true
+position = Vector2( 6314.93, -2325.17 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallPuzzles/Type2Puzzles/Puzzle3"]
+position = Vector2( 3649.76, 163.313 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type2Puzzles/Puzzle3/StaticBody2D"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type2Puzzles/Puzzle3/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WallPuzzles/Type2Puzzles/Puzzle3"]
+editor/display_folded = true
+position = Vector2( 3649.76, 911.63 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type2Puzzles/Puzzle3/StaticBody2D2"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type2Puzzles/Puzzle3/StaticBody2D2"]
+shape = SubResource( 2 )
+
+[node name="Puzzle4" type="Node2D" parent="WallPuzzles/Type2Puzzles"]
+editor/display_folded = true
+position = Vector2( 7153.55, -2078.24 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallPuzzles/Type2Puzzles/Puzzle4"]
+position = Vector2( 3649.76, 163.313 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type2Puzzles/Puzzle4/StaticBody2D"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type2Puzzles/Puzzle4/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WallPuzzles/Type2Puzzles/Puzzle4"]
+editor/display_folded = true
+position = Vector2( 3649.76, 911.63 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type2Puzzles/Puzzle4/StaticBody2D2"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type2Puzzles/Puzzle4/StaticBody2D2"]
+shape = SubResource( 2 )
+
+[node name="Puzzle5" type="Node2D" parent="WallPuzzles/Type2Puzzles"]
+editor/display_folded = true
+position = Vector2( 7475.02, -783.216 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallPuzzles/Type2Puzzles/Puzzle5"]
+position = Vector2( 3649.76, 163.313 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type2Puzzles/Puzzle5/StaticBody2D"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type2Puzzles/Puzzle5/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WallPuzzles/Type2Puzzles/Puzzle5"]
+editor/display_folded = true
+position = Vector2( 3649.76, 911.63 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type2Puzzles/Puzzle5/StaticBody2D2"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type2Puzzles/Puzzle5/StaticBody2D2"]
+shape = SubResource( 2 )
+
+[node name="Puzzle6" type="Node2D" parent="WallPuzzles/Type2Puzzles"]
+editor/display_folded = true
+position = Vector2( 9225.58, -1236.8 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallPuzzles/Type2Puzzles/Puzzle6"]
+position = Vector2( 3649.76, 163.313 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type2Puzzles/Puzzle6/StaticBody2D"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type2Puzzles/Puzzle6/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WallPuzzles/Type2Puzzles/Puzzle6"]
+editor/display_folded = true
+position = Vector2( 3649.76, 911.63 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type2Puzzles/Puzzle6/StaticBody2D2"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type2Puzzles/Puzzle6/StaticBody2D2"]
+shape = SubResource( 2 )
+
+[node name="Puzzle9" type="Node2D" parent="WallPuzzles/Type2Puzzles"]
+editor/display_folded = true
+position = Vector2( 11063.1, -1596.46 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallPuzzles/Type2Puzzles/Puzzle9"]
+position = Vector2( 3649.76, 163.313 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type2Puzzles/Puzzle9/StaticBody2D"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type2Puzzles/Puzzle9/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WallPuzzles/Type2Puzzles/Puzzle9"]
+editor/display_folded = true
+position = Vector2( 3649.76, 911.63 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type2Puzzles/Puzzle9/StaticBody2D2"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type2Puzzles/Puzzle9/StaticBody2D2"]
+shape = SubResource( 2 )
+
+[node name="Puzzle7" type="Node2D" parent="WallPuzzles/Type2Puzzles"]
+editor/display_folded = true
+position = Vector2( 9905.21, -783.216 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallPuzzles/Type2Puzzles/Puzzle7"]
+editor/display_folded = true
+position = Vector2( 3649.76, 163.313 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type2Puzzles/Puzzle7/StaticBody2D"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type2Puzzles/Puzzle7/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WallPuzzles/Type2Puzzles/Puzzle7"]
+editor/display_folded = true
+position = Vector2( 3649.76, 911.63 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type2Puzzles/Puzzle7/StaticBody2D2"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type2Puzzles/Puzzle7/StaticBody2D2"]
+shape = SubResource( 2 )
+
+[node name="Puzzle8" type="Node2D" parent="WallPuzzles/Type2Puzzles"]
+position = Vector2( 8145.58, -806.614 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallPuzzles/Type2Puzzles/Puzzle8"]
+position = Vector2( 3649.76, 163.313 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type2Puzzles/Puzzle8/StaticBody2D"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type2Puzzles/Puzzle8/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WallPuzzles/Type2Puzzles/Puzzle8"]
+editor/display_folded = true
+position = Vector2( 3649.76, 911.63 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type2Puzzles/Puzzle8/StaticBody2D2"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type2Puzzles/Puzzle8/StaticBody2D2"]
+shape = SubResource( 2 )
+
+[node name="Type3Puzzles" type="Node2D" parent="WallPuzzles"]
+position = Vector2( -2016.43, -225.522 )
+
+[node name="Puzzle1" type="Node2D" parent="WallPuzzles/Type3Puzzles"]
+editor/display_folded = true
+position = Vector2( 15652.5, -1546.39 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallPuzzles/Type3Puzzles/Puzzle1"]
+editor/display_folded = true
+position = Vector2( 3649.76, 163.313 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type3Puzzles/Puzzle1/StaticBody2D"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type3Puzzles/Puzzle1/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WallPuzzles/Type3Puzzles/Puzzle1"]
+position = Vector2( 3649.76, 956.153 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type3Puzzles/Puzzle1/StaticBody2D2"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type3Puzzles/Puzzle1/StaticBody2D2"]
+shape = SubResource( 2 )
+
+[node name="Puzzle2" type="Node2D" parent="WallPuzzles/Type3Puzzles"]
+editor/display_folded = true
+position = Vector2( -1076.93, 0 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallPuzzles/Type3Puzzles/Puzzle2"]
+editor/display_folded = true
+position = Vector2( 3649.76, 163.313 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type3Puzzles/Puzzle2/StaticBody2D"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type3Puzzles/Puzzle2/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WallPuzzles/Type3Puzzles/Puzzle2"]
+position = Vector2( 3649.76, 956.153 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type3Puzzles/Puzzle2/StaticBody2D2"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type3Puzzles/Puzzle2/StaticBody2D2"]
+shape = SubResource( 2 )
+
+[node name="Type3Puzzles2" type="Node2D" parent="WallPuzzles"]
+position = Vector2( -1776.69, -307.717 )
+
+[node name="Puzzle1" type="Node2D" parent="WallPuzzles/Type3Puzzles2"]
+editor/display_folded = true
+position = Vector2( -1076.93, 0 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallPuzzles/Type3Puzzles2/Puzzle1"]
+editor/display_folded = true
+position = Vector2( 3649.76, 163.313 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type3Puzzles2/Puzzle1/StaticBody2D"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type3Puzzles2/Puzzle1/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WallPuzzles/Type3Puzzles2/Puzzle1"]
+editor/display_folded = true
+position = Vector2( 3649.76, 956.153 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type3Puzzles2/Puzzle1/StaticBody2D2"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type3Puzzles2/Puzzle1/StaticBody2D2"]
+shape = SubResource( 2 )
+
+[node name="Puzzle2" type="Node2D" parent="WallPuzzles/Type3Puzzles2"]
+editor/display_folded = true
+position = Vector2( 23162.8, -1554.2 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallPuzzles/Type3Puzzles2/Puzzle2"]
+editor/display_folded = true
+position = Vector2( 3649.76, 163.313 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type3Puzzles2/Puzzle2/StaticBody2D"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type3Puzzles2/Puzzle2/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WallPuzzles/Type3Puzzles2/Puzzle2"]
+editor/display_folded = true
+position = Vector2( 3649.76, 956.153 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type3Puzzles2/Puzzle2/StaticBody2D2"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type3Puzzles2/Puzzle2/StaticBody2D2"]
+shape = SubResource( 2 )
+
+[node name="Type3Puzzles3" type="Node2D" parent="WallPuzzles"]
+position = Vector2( -1390.32, -105.655 )
+
+[node name="Puzzle1" type="Node2D" parent="WallPuzzles/Type3Puzzles3"]
+editor/display_folded = true
+position = Vector2( -1076.93, 0 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallPuzzles/Type3Puzzles3/Puzzle1"]
+editor/display_folded = true
+position = Vector2( 3649.76, 163.313 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type3Puzzles3/Puzzle1/StaticBody2D"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type3Puzzles3/Puzzle1/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WallPuzzles/Type3Puzzles3/Puzzle1"]
+editor/display_folded = true
+position = Vector2( 3649.76, 956.153 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type3Puzzles3/Puzzle1/StaticBody2D2"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type3Puzzles3/Puzzle1/StaticBody2D2"]
+shape = SubResource( 2 )
+
+[node name="Type3Puzzles4" type="Node2D" parent="WallPuzzles"]
+position = Vector2( 26603, -105.655 )
+
+[node name="Puzzle1" type="Node2D" parent="WallPuzzles/Type3Puzzles4"]
+editor/display_folded = true
+position = Vector2( -1076.93, 0 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallPuzzles/Type3Puzzles4/Puzzle1"]
+editor/display_folded = true
+position = Vector2( 3649.76, 163.313 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type3Puzzles4/Puzzle1/StaticBody2D"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type3Puzzles4/Puzzle1/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WallPuzzles/Type3Puzzles4/Puzzle1"]
+editor/display_folded = true
+position = Vector2( 3649.76, 956.153 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type3Puzzles4/Puzzle1/StaticBody2D2"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type3Puzzles4/Puzzle1/StaticBody2D2"]
+shape = SubResource( 2 )
+
+[node name="Puzzle2" type="Node2D" parent="WallPuzzles/Type3Puzzles4"]
+editor/display_folded = true
+position = Vector2( 123.072, -1526.26 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallPuzzles/Type3Puzzles4/Puzzle2"]
+editor/display_folded = true
+position = Vector2( 3649.76, 163.313 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type3Puzzles4/Puzzle2/StaticBody2D"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type3Puzzles4/Puzzle2/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WallPuzzles/Type3Puzzles4/Puzzle2"]
+editor/display_folded = true
+position = Vector2( 3649.76, 956.153 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type3Puzzles4/Puzzle2/StaticBody2D2"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type3Puzzles4/Puzzle2/StaticBody2D2"]
+shape = SubResource( 2 )
+
+[node name="Puzzle3" type="Node2D" parent="WallPuzzles/Type3Puzzles4"]
+editor/display_folded = true
+position = Vector2( 793.072, -1755.68 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallPuzzles/Type3Puzzles4/Puzzle3"]
+editor/display_folded = true
+position = Vector2( 3649.76, 163.313 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type3Puzzles4/Puzzle3/StaticBody2D"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type3Puzzles4/Puzzle3/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WallPuzzles/Type3Puzzles4/Puzzle3"]
+editor/display_folded = true
+position = Vector2( 3649.76, 956.153 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type3Puzzles4/Puzzle3/StaticBody2D2"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type3Puzzles4/Puzzle3/StaticBody2D2"]
+shape = SubResource( 2 )
+
+[node name="Puzzle4" type="Node2D" parent="WallPuzzles/Type3Puzzles4"]
+editor/display_folded = true
+position = Vector2( 1613.07, -1553.64 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallPuzzles/Type3Puzzles4/Puzzle4"]
+editor/display_folded = true
+position = Vector2( 3649.76, 163.313 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type3Puzzles4/Puzzle4/StaticBody2D"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type3Puzzles4/Puzzle4/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WallPuzzles/Type3Puzzles4/Puzzle4"]
+editor/display_folded = true
+position = Vector2( 3649.76, 956.153 )
+scale = Vector2( 1.5, 1 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type3Puzzles4/Puzzle4/StaticBody2D2"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type3Puzzles4/Puzzle4/StaticBody2D2"]
+shape = SubResource( 2 )
+
+[node name="Type5Puzzles" type="Node2D" parent="WallPuzzles"]
+
+[node name="Puzzle1" type="Node2D" parent="WallPuzzles/Type5Puzzles"]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Wall1" type="Node2D" parent="WallPuzzles/Type5Puzzles/Puzzle1"]
+editor/display_folded = true
+position = Vector2( -710.259, -73.2566 )
+z_index = -1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallPuzzles/Type5Puzzles/Puzzle1/Wall1"]
+editor/display_folded = true
+position = Vector2( 3649.76, 174.698 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type5Puzzles/Puzzle1/Wall1/StaticBody2D"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle1/Wall1/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WallPuzzles/Type5Puzzles/Puzzle1/Wall1"]
+editor/display_folded = true
+position = Vector2( 3649.76, 956.153 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type5Puzzles/Puzzle1/Wall1/StaticBody2D2"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle1/Wall1/StaticBody2D2"]
+shape = SubResource( 2 )
+
+[node name="KillerArea" type="Area2D" parent="WallPuzzles/Type5Puzzles/Puzzle1/Wall1" groups=[
+"KillerArea",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle1/Wall1/KillerArea"]
+position = Vector2( 3649.82, 567.193 )
+shape = SubResource( 22 )
+
+[node name="Wall2" type="Node2D" parent="WallPuzzles/Type5Puzzles/Puzzle1"]
+editor/display_folded = true
+position = Vector2( -610, -37.0798 )
+z_index = -1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallPuzzles/Type5Puzzles/Puzzle1/Wall2"]
+editor/display_folded = true
+position = Vector2( 3649.76, 174.698 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type5Puzzles/Puzzle1/Wall2/StaticBody2D"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle1/Wall2/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WallPuzzles/Type5Puzzles/Puzzle1/Wall2"]
+editor/display_folded = true
+position = Vector2( 3649.76, 956.153 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type5Puzzles/Puzzle1/Wall2/StaticBody2D2"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle1/Wall2/StaticBody2D2"]
+shape = SubResource( 2 )
+
+[node name="KillerArea" type="Area2D" parent="WallPuzzles/Type5Puzzles/Puzzle1/Wall2" groups=[
+"KillerArea",
+]]
+position = Vector2( 2.62622, -0.297104 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle1/Wall2/KillerArea"]
+position = Vector2( 3649.82, 567.193 )
+shape = SubResource( 22 )
+
+[node name="Wall3" type="Node2D" parent="WallPuzzles/Type5Puzzles/Puzzle1"]
+editor/display_folded = true
+position = Vector2( -529.25, -3.2333 )
+z_index = -1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallPuzzles/Type5Puzzles/Puzzle1/Wall3"]
+editor/display_folded = true
+position = Vector2( 3649.76, 174.698 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type5Puzzles/Puzzle1/Wall3/StaticBody2D"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle1/Wall3/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WallPuzzles/Type5Puzzles/Puzzle1/Wall3"]
+editor/display_folded = true
+position = Vector2( 3649.76, 956.153 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type5Puzzles/Puzzle1/Wall3/StaticBody2D2"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle1/Wall3/StaticBody2D2"]
+shape = SubResource( 2 )
+
+[node name="KillerArea" type="Area2D" parent="WallPuzzles/Type5Puzzles/Puzzle1/Wall3" groups=[
+"KillerArea",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle1/Wall3/KillerArea"]
+position = Vector2( 3649.82, 567.193 )
+shape = SubResource( 22 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WallPuzzles/Type5Puzzles/Puzzle1"]
+autoplay = "Working"
+playback_speed = 0.9
+anims/Working = SubResource( 23 )
+
+[node name="KillerArea1" type="Area2D" parent="WallPuzzles/Type5Puzzles/Puzzle1" groups=[
+"KillerArea",
+]]
+editor/display_folded = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle1/KillerArea1"]
+position = Vector2( 2990.23, 368.311 )
+shape = SubResource( 24 )
+
+[node name="KillerArea2" type="Area2D" parent="WallPuzzles/Type5Puzzles/Puzzle1" groups=[
+"KillerArea",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle1/KillerArea2"]
+position = Vector2( 2990.23, 368.311 )
+shape = SubResource( 24 )
+
+[node name="KillerArea3" type="Area2D" parent="WallPuzzles/Type5Puzzles/Puzzle1" groups=[
+"KillerArea",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle1/KillerArea3"]
+position = Vector2( 2990.23, 368.311 )
+shape = SubResource( 24 )
+
+[node name="Puzzle2" type="Node2D" parent="WallPuzzles/Type5Puzzles"]
+editor/display_folded = true
+position = Vector2( 15226.1, -1621.92 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Wall1" type="Node2D" parent="WallPuzzles/Type5Puzzles/Puzzle2"]
+editor/display_folded = true
+position = Vector2( -710.259, -73.2566 )
+z_index = -1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallPuzzles/Type5Puzzles/Puzzle2/Wall1"]
+editor/display_folded = true
+position = Vector2( 3649.76, 174.698 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type5Puzzles/Puzzle2/Wall1/StaticBody2D"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle2/Wall1/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WallPuzzles/Type5Puzzles/Puzzle2/Wall1"]
+editor/display_folded = true
+position = Vector2( 3649.76, 956.153 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type5Puzzles/Puzzle2/Wall1/StaticBody2D2"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle2/Wall1/StaticBody2D2"]
+shape = SubResource( 2 )
+
+[node name="KillerArea" type="Area2D" parent="WallPuzzles/Type5Puzzles/Puzzle2/Wall1" groups=[
+"KillerArea",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle2/Wall1/KillerArea"]
+position = Vector2( 3649.82, 567.193 )
+shape = SubResource( 22 )
+
+[node name="Wall2" type="Node2D" parent="WallPuzzles/Type5Puzzles/Puzzle2"]
+editor/display_folded = true
+position = Vector2( -610, -37.0798 )
+z_index = -1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallPuzzles/Type5Puzzles/Puzzle2/Wall2"]
+editor/display_folded = true
+position = Vector2( 3649.76, 174.698 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type5Puzzles/Puzzle2/Wall2/StaticBody2D"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle2/Wall2/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WallPuzzles/Type5Puzzles/Puzzle2/Wall2"]
+editor/display_folded = true
+position = Vector2( 3649.76, 956.153 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type5Puzzles/Puzzle2/Wall2/StaticBody2D2"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle2/Wall2/StaticBody2D2"]
+shape = SubResource( 2 )
+
+[node name="KillerArea" type="Area2D" parent="WallPuzzles/Type5Puzzles/Puzzle2/Wall2" groups=[
+"KillerArea",
+]]
+position = Vector2( 2.62622, -0.297104 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle2/Wall2/KillerArea"]
+position = Vector2( 3649.82, 567.193 )
+shape = SubResource( 22 )
+
+[node name="Wall3" type="Node2D" parent="WallPuzzles/Type5Puzzles/Puzzle2"]
+editor/display_folded = true
+position = Vector2( -529.25, -3.2333 )
+z_index = -1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallPuzzles/Type5Puzzles/Puzzle2/Wall3"]
+editor/display_folded = true
+position = Vector2( 3649.76, 174.698 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type5Puzzles/Puzzle2/Wall3/StaticBody2D"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle2/Wall3/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WallPuzzles/Type5Puzzles/Puzzle2/Wall3"]
+editor/display_folded = true
+position = Vector2( 3649.76, 956.153 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type5Puzzles/Puzzle2/Wall3/StaticBody2D2"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle2/Wall3/StaticBody2D2"]
+shape = SubResource( 2 )
+
+[node name="KillerArea" type="Area2D" parent="WallPuzzles/Type5Puzzles/Puzzle2/Wall3" groups=[
+"KillerArea",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle2/Wall3/KillerArea"]
+position = Vector2( 3649.82, 567.193 )
+shape = SubResource( 22 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WallPuzzles/Type5Puzzles/Puzzle2"]
+autoplay = "Working"
+playback_speed = 0.9
+anims/Working = SubResource( 25 )
+
+[node name="KillerArea1" type="Area2D" parent="WallPuzzles/Type5Puzzles/Puzzle2" groups=[
+"KillerArea",
+]]
+editor/display_folded = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle2/KillerArea1"]
+position = Vector2( 2990.23, 368.311 )
+shape = SubResource( 24 )
+
+[node name="KillerArea2" type="Area2D" parent="WallPuzzles/Type5Puzzles/Puzzle2" groups=[
+"KillerArea",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle2/KillerArea2"]
+position = Vector2( 2990.23, 368.311 )
+shape = SubResource( 24 )
+
+[node name="KillerArea3" type="Area2D" parent="WallPuzzles/Type5Puzzles/Puzzle2" groups=[
+"KillerArea",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle2/KillerArea3"]
+position = Vector2( 2990.23, 368.311 )
+shape = SubResource( 24 )
+
+[node name="Puzzle3" type="Node2D" parent="WallPuzzles/Type5Puzzles"]
+editor/display_folded = true
+position = Vector2( 34226.1, -1780.11 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Wall1" type="Node2D" parent="WallPuzzles/Type5Puzzles/Puzzle3"]
+editor/display_folded = true
+position = Vector2( -710.259, -73.2566 )
+z_index = -1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallPuzzles/Type5Puzzles/Puzzle3/Wall1"]
+editor/display_folded = true
+position = Vector2( 3649.76, 174.698 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type5Puzzles/Puzzle3/Wall1/StaticBody2D"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle3/Wall1/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WallPuzzles/Type5Puzzles/Puzzle3/Wall1"]
+editor/display_folded = true
+position = Vector2( 3649.76, 956.153 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type5Puzzles/Puzzle3/Wall1/StaticBody2D2"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle3/Wall1/StaticBody2D2"]
+shape = SubResource( 2 )
+
+[node name="KillerArea" type="Area2D" parent="WallPuzzles/Type5Puzzles/Puzzle3/Wall1" groups=[
+"KillerArea",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle3/Wall1/KillerArea"]
+position = Vector2( 3649.82, 567.193 )
+shape = SubResource( 22 )
+
+[node name="Wall2" type="Node2D" parent="WallPuzzles/Type5Puzzles/Puzzle3"]
+editor/display_folded = true
+position = Vector2( -610, -37.0798 )
+z_index = -1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallPuzzles/Type5Puzzles/Puzzle3/Wall2"]
+editor/display_folded = true
+position = Vector2( 3649.76, 174.698 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type5Puzzles/Puzzle3/Wall2/StaticBody2D"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle3/Wall2/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WallPuzzles/Type5Puzzles/Puzzle3/Wall2"]
+editor/display_folded = true
+position = Vector2( 3649.76, 956.153 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type5Puzzles/Puzzle3/Wall2/StaticBody2D2"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle3/Wall2/StaticBody2D2"]
+shape = SubResource( 2 )
+
+[node name="KillerArea" type="Area2D" parent="WallPuzzles/Type5Puzzles/Puzzle3/Wall2" groups=[
+"KillerArea",
+]]
+position = Vector2( 2.62622, -0.297104 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle3/Wall2/KillerArea"]
+position = Vector2( 3649.82, 567.193 )
+shape = SubResource( 22 )
+
+[node name="Wall3" type="Node2D" parent="WallPuzzles/Type5Puzzles/Puzzle3"]
+editor/display_folded = true
+position = Vector2( -529.25, -3.2333 )
+z_index = -1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallPuzzles/Type5Puzzles/Puzzle3/Wall3"]
+editor/display_folded = true
+position = Vector2( 3649.76, 174.698 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type5Puzzles/Puzzle3/Wall3/StaticBody2D"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle3/Wall3/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WallPuzzles/Type5Puzzles/Puzzle3/Wall3"]
+editor/display_folded = true
+position = Vector2( 3649.76, 956.153 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="Sprite" type="Sprite" parent="WallPuzzles/Type5Puzzles/Puzzle3/Wall3/StaticBody2D2"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle3/Wall3/StaticBody2D2"]
+shape = SubResource( 2 )
+
+[node name="KillerArea" type="Area2D" parent="WallPuzzles/Type5Puzzles/Puzzle3/Wall3" groups=[
+"KillerArea",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle3/Wall3/KillerArea"]
+position = Vector2( 3649.82, 567.193 )
+shape = SubResource( 22 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WallPuzzles/Type5Puzzles/Puzzle3"]
+autoplay = "Working"
+playback_speed = 0.9
+anims/Working = SubResource( 26 )
+
+[node name="KillerArea1" type="Area2D" parent="WallPuzzles/Type5Puzzles/Puzzle3" groups=[
+"KillerArea",
+]]
+editor/display_folded = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle3/KillerArea1"]
+position = Vector2( 2990.23, 368.311 )
+shape = SubResource( 24 )
+
+[node name="KillerArea2" type="Area2D" parent="WallPuzzles/Type5Puzzles/Puzzle3" groups=[
+"KillerArea",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle3/KillerArea2"]
+position = Vector2( 2990.23, 368.311 )
+shape = SubResource( 24 )
+
+[node name="KillerArea3" type="Area2D" parent="WallPuzzles/Type5Puzzles/Puzzle3" groups=[
+"KillerArea",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallPuzzles/Type5Puzzles/Puzzle3/KillerArea3"]
+position = Vector2( 2990.23, 368.311 )
+shape = SubResource( 24 )
+
+[node name="SaveGems" type="Node2D" parent="."]
+position = Vector2( 3772.26, -1043.6 )
+
+[node name="SaveGem1" type="Node2D" parent="SaveGems"]
+position = Vector2( -1563.45, 728.598 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Gem" type="Sprite" parent="SaveGems/SaveGem1"]
+position = Vector2( -1.70166, -20.4154 )
+texture = ExtResource( 18 )
+script = ExtResource( 19 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SaveGems/SaveGem1/Gem"]
+autoplay = "GemMotion"
+anims/GemMotion = SubResource( 27 )
+
+[node name="Area2D" type="Area2D" parent="SaveGems/SaveGem1/Gem"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SaveGems/SaveGem1/Gem/Area2D"]
+visible = false
+polygon = PoolVector2Array( -1.11499, -55.9136, 16.134, 0.477234, -1.11499, 56.868, -14.3833, 2.46747 )
+
+[node name="SaveGem5" type="Node2D" parent="SaveGems"]
+editor/display_folded = true
+position = Vector2( 5487.74, 1203.6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Gem" type="Sprite" parent="SaveGems/SaveGem5"]
+position = Vector2( -1.70166, -20.4154 )
+texture = ExtResource( 18 )
+script = ExtResource( 19 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SaveGems/SaveGem5/Gem"]
+autoplay = "GemMotion"
+anims/GemMotion = SubResource( 28 )
+
+[node name="Area2D" type="Area2D" parent="SaveGems/SaveGem5/Gem"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SaveGems/SaveGem5/Gem/Area2D"]
+visible = false
+polygon = PoolVector2Array( -1.11499, -55.9136, 16.134, 0.477234, -1.11499, 56.868, -14.3833, 2.46747 )
+
+[node name="SaveGem3" type="Node2D" parent="SaveGems"]
+editor/display_folded = true
+position = Vector2( -1396.66, 1635.93 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Gem" type="Sprite" parent="SaveGems/SaveGem3"]
+position = Vector2( -1.70166, -20.4154 )
+texture = ExtResource( 18 )
+script = ExtResource( 19 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SaveGems/SaveGem3/Gem"]
+autoplay = "GemMotion"
+anims/GemMotion = SubResource( 29 )
+
+[node name="Area2D" type="Area2D" parent="SaveGems/SaveGem3/Gem"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SaveGems/SaveGem3/Gem/Area2D"]
+visible = false
+polygon = PoolVector2Array( -1.11499, -55.9136, 16.134, 0.477234, -1.11499, 56.868, -14.3833, 2.46747 )
+
+[node name="SaveGem2" type="Node2D" parent="SaveGems"]
+editor/display_folded = true
+position = Vector2( -268.016, 737.852 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Gem" type="Sprite" parent="SaveGems/SaveGem2"]
+position = Vector2( -1.70166, -20.4154 )
+texture = ExtResource( 18 )
+script = ExtResource( 19 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SaveGems/SaveGem2/Gem"]
+autoplay = "GemMotion"
+anims/GemMotion = SubResource( 30 )
+
+[node name="Area2D" type="Area2D" parent="SaveGems/SaveGem2/Gem"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SaveGems/SaveGem2/Gem/Area2D"]
+visible = false
+polygon = PoolVector2Array( -1.11499, -55.9136, 16.134, 0.477234, -1.11499, 56.868, -14.3833, 2.46747 )
+
+[node name="SaveGem4" type="Node2D" parent="SaveGems"]
+editor/display_folded = true
+position = Vector2( 2381.26, 1628.97 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Gem" type="Sprite" parent="SaveGems/SaveGem4"]
+position = Vector2( -1.70166, -20.4154 )
+texture = ExtResource( 18 )
+script = ExtResource( 19 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SaveGems/SaveGem4/Gem"]
+autoplay = "GemMotion"
+anims/GemMotion = SubResource( 31 )
+
+[node name="Area2D" type="Area2D" parent="SaveGems/SaveGem4/Gem"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SaveGems/SaveGem4/Gem/Area2D"]
+visible = false
+polygon = PoolVector2Array( -1.11499, -55.9136, 16.134, 0.477234, -1.11499, 56.868, -14.3833, 2.46747 )
+
+[node name="SaveGem6" type="Node2D" parent="SaveGems"]
+editor/display_folded = true
+position = Vector2( 7447.74, 1628.97 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Gem" type="Sprite" parent="SaveGems/SaveGem6"]
+position = Vector2( -1.70166, -20.4154 )
+texture = ExtResource( 18 )
+script = ExtResource( 19 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SaveGems/SaveGem6/Gem"]
+autoplay = "GemMotion"
+anims/GemMotion = SubResource( 32 )
+
+[node name="Area2D" type="Area2D" parent="SaveGems/SaveGem6/Gem"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SaveGems/SaveGem6/Gem/Area2D"]
+visible = false
+polygon = PoolVector2Array( -1.11499, -55.9136, 16.134, 0.477234, -1.11499, 56.868, -14.3833, 2.46747 )
+
+[node name="SaveGem7" type="Node2D" parent="SaveGems"]
+editor/display_folded = true
+position = Vector2( 9217.74, 1233.6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Gem" type="Sprite" parent="SaveGems/SaveGem7"]
+position = Vector2( -1.70166, -20.4154 )
+texture = ExtResource( 18 )
+script = ExtResource( 19 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SaveGems/SaveGem7/Gem"]
+autoplay = "GemMotion"
+anims/GemMotion = SubResource( 33 )
+
+[node name="Area2D" type="Area2D" parent="SaveGems/SaveGem7/Gem"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SaveGems/SaveGem7/Gem/Area2D"]
+visible = false
+polygon = PoolVector2Array( -1.11499, -55.9136, 16.134, 0.477234, -1.11499, 56.868, -14.3833, 2.46747 )
+
+[node name="SaveGem8" type="Node2D" parent="SaveGems"]
+editor/display_folded = true
+position = Vector2( 14596, 1610.25 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Gem" type="Sprite" parent="SaveGems/SaveGem8"]
+position = Vector2( -1.70166, -20.4154 )
+texture = ExtResource( 18 )
+script = ExtResource( 19 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SaveGems/SaveGem8/Gem"]
+autoplay = "GemMotion"
+anims/GemMotion = SubResource( 34 )
+
+[node name="Area2D" type="Area2D" parent="SaveGems/SaveGem8/Gem"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SaveGems/SaveGem8/Gem/Area2D"]
+visible = false
+polygon = PoolVector2Array( -1.11499, -55.9136, 16.134, 0.477234, -1.11499, 56.868, -14.3833, 2.46747 )
+
+[node name="SaveGem9" type="Node2D" parent="SaveGems"]
+editor/display_folded = true
+position = Vector2( 15537.7, 1610.25 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Gem" type="Sprite" parent="SaveGems/SaveGem9"]
+position = Vector2( -1.70166, -20.4154 )
+texture = ExtResource( 18 )
+script = ExtResource( 19 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SaveGems/SaveGem9/Gem"]
+autoplay = "GemMotion"
+anims/GemMotion = SubResource( 35 )
+
+[node name="Area2D" type="Area2D" parent="SaveGems/SaveGem9/Gem"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SaveGems/SaveGem9/Gem/Area2D"]
+visible = false
+polygon = PoolVector2Array( -1.11499, -55.9136, 16.134, 0.477234, -1.11499, 56.868, -14.3833, 2.46747 )
+
+[node name="SaveGem10" type="Node2D" parent="SaveGems"]
+editor/display_folded = true
+position = Vector2( 22257.7, 1610.25 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Gem" type="Sprite" parent="SaveGems/SaveGem10"]
+position = Vector2( -1.70166, -20.4154 )
+texture = ExtResource( 18 )
+script = ExtResource( 19 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SaveGems/SaveGem10/Gem"]
+autoplay = "GemMotion"
+anims/GemMotion = SubResource( 36 )
+
+[node name="Area2D" type="Area2D" parent="SaveGems/SaveGem10/Gem"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SaveGems/SaveGem10/Gem/Area2D"]
+visible = false
+polygon = PoolVector2Array( -1.11499, -55.9136, 16.134, 0.477234, -1.11499, 56.868, -14.3833, 2.46747 )
+
+[node name="SaveGem11" type="Node2D" parent="SaveGems"]
+editor/display_folded = true
+position = Vector2( 24957.7, 1483.6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Gem" type="Sprite" parent="SaveGems/SaveGem11"]
+position = Vector2( -1.70166, -20.4154 )
+texture = ExtResource( 18 )
+script = ExtResource( 19 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SaveGems/SaveGem11/Gem"]
+autoplay = "GemMotion"
+anims/GemMotion = SubResource( 37 )
+
+[node name="Area2D" type="Area2D" parent="SaveGems/SaveGem11/Gem"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SaveGems/SaveGem11/Gem/Area2D"]
+visible = false
+polygon = PoolVector2Array( -1.11499, -55.9136, 16.134, 0.477234, -1.11499, 56.868, -14.3833, 2.46747 )
+
+[node name="OrbNode" type="Node2D" parent="."]
+position = Vector2( 42120, 590 )
+script = ExtResource( 20 )
+
+[node name="Area2D" type="Area2D" parent="OrbNode"]
+modulate = Color( 0.976471, 0.439216, 0.45098, 1 )
+position = Vector2( 440, -108.451 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Sprite" type="Sprite" parent="OrbNode/Area2D"]
+texture = ExtResource( 21 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OrbNode/Area2D"]
+visible = false
+shape = SubResource( 38 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="OrbNode"]
+autoplay = "Rotating"
+anims/Blast = SubResource( 39 )
+anims/Rotating = SubResource( 40 )
+
+[node name="OrbNode2" type="Node2D" parent="."]
+editor/display_folded = true
+position = Vector2( 31040, 540.55 )
+script = ExtResource( 22 )
+
+[node name="Area2D" type="Area2D" parent="OrbNode2"]
+editor/display_folded = true
+modulate = Color( 1, 0.921569, 0.505882, 1 )
+position = Vector2( 440, -108.451 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Sprite" type="Sprite" parent="OrbNode2/Area2D"]
+texture = ExtResource( 21 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OrbNode2/Area2D"]
+visible = false
+shape = SubResource( 38 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="OrbNode2"]
+autoplay = "Rotating"
+anims/Blast = SubResource( 41 )
+anims/Rotating = SubResource( 42 )
+
+[node name="BackElements" type="Node2D" parent="."]
+editor/display_folded = true
+visible = false
+z_index = -3
+
+[node name="Circles" type="Node2D" parent="BackElements"]
+editor/display_folded = true
+position = Vector2( 0, -140 )
+
+[node name="Sprite" type="Sprite" parent="BackElements/Circles"]
+position = Vector2( 250, 324.706 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 23 )
+
+[node name="Sprite4" type="Sprite" parent="BackElements/Circles"]
+position = Vector2( 4870, 324.706 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 23 )
+
+[node name="Sprite7" type="Sprite" parent="BackElements/Circles"]
+position = Vector2( 15356.5, 324.706 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 23 )
+
+[node name="Sprite8" type="Sprite" parent="BackElements/Circles"]
+position = Vector2( 17490, 324.706 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 23 )
+
+[node name="Sprite9" type="Sprite" parent="BackElements/Circles"]
+position = Vector2( 19890, 324.706 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 23 )
+
+[node name="Sprite10" type="Sprite" parent="BackElements/Circles"]
+position = Vector2( 22990, 324.706 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 23 )
+
+[node name="Sprite13" type="Sprite" parent="BackElements/Circles"]
+position = Vector2( 38460, 324.706 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 23 )
+
+[node name="Sprite15" type="Sprite" parent="BackElements/Circles"]
+position = Vector2( 43590, 324.706 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 23 )
+
+[node name="Doors" type="Node2D" parent="BackElements"]
+editor/display_folded = true
+
+[node name="Sprite" type="Sprite" parent="BackElements/Doors"]
+position = Vector2( 890, 440.187 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 24 )
+
+[node name="Sprite2" type="Sprite" parent="BackElements/Doors"]
+position = Vector2( 8590, 440.187 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 24 )
+
+[node name="Sprite3" type="Sprite" parent="BackElements/Doors"]
+position = Vector2( 14020, 440.187 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 24 )
+
+[node name="Sprite4" type="Sprite" parent="BackElements/Doors"]
+position = Vector2( 17240, 440.187 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 24 )
+
+[node name="Sprite5" type="Sprite" parent="BackElements/Doors"]
+position = Vector2( 21580, 440.187 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 24 )
+
+[node name="Sprite6" type="Sprite" parent="BackElements/Doors"]
+position = Vector2( 29200, 440.187 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 24 )
+
+[node name="Sprite7" type="Sprite" parent="BackElements/Doors"]
+position = Vector2( 34269.7, 440.187 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 24 )
+
+[node name="Sprite8" type="Sprite" parent="BackElements/Doors"]
+position = Vector2( 41420, 440.187 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 24 )
+
+[node name="Jalis" type="Node2D" parent="BackElements"]
+editor/display_folded = true
+
+[node name="Sprite" type="Sprite" parent="BackElements/Jalis"]
+position = Vector2( 1800, 250 )
+texture = ExtResource( 25 )
+
+[node name="Sprite2" type="Sprite" parent="BackElements/Jalis"]
+position = Vector2( 5630, 250 )
+texture = ExtResource( 25 )
+
+[node name="Sprite3" type="Sprite" parent="BackElements/Jalis"]
+position = Vector2( 25110, 243.313 )
+texture = ExtResource( 25 )
+
+[node name="Sprite4" type="Sprite" parent="BackElements/Jalis"]
+position = Vector2( 36040, 243.313 )
+texture = ExtResource( 25 )
+
+[node name="Sprite5" type="Sprite" parent="BackElements/Jalis"]
+position = Vector2( 44560, 243.313 )
+texture = ExtResource( 25 )
+
+[node name="Locks" type="Node2D" parent="BackElements"]
+editor/display_folded = true
+
+[node name="Sprite" type="Sprite" parent="BackElements/Locks"]
+position = Vector2( 674.51, 432.1 )
+texture = ExtResource( 26 )
+
+[node name="Sprite2" type="Sprite" parent="BackElements/Locks"]
+position = Vector2( 8330, 432.1 )
+texture = ExtResource( 26 )
+
+[node name="Sprite3" type="Sprite" parent="BackElements/Locks"]
+position = Vector2( 13740, 432.1 )
+texture = ExtResource( 26 )
+
+[node name="Sprite4" type="Sprite" parent="BackElements/Locks"]
+position = Vector2( 17020, 432.1 )
+texture = ExtResource( 26 )
+
+[node name="Sprite5" type="Sprite" parent="BackElements/Locks"]
+position = Vector2( 21360, 432.1 )
+texture = ExtResource( 26 )
+
+[node name="Sprite6" type="Sprite" parent="BackElements/Locks"]
+position = Vector2( 28990, 432.1 )
+texture = ExtResource( 26 )
+
+[node name="Sprite7" type="Sprite" parent="BackElements/Locks"]
+position = Vector2( 34040, 432.1 )
+texture = ExtResource( 26 )
+
+[node name="Sprite8" type="Sprite" parent="BackElements/Locks"]
+position = Vector2( 41240, 432.1 )
+texture = ExtResource( 26 )
+
+[node name="Panels" type="Node2D" parent="BackElements"]
+
+[node name="Sprite" type="Sprite" parent="BackElements/Panels"]
+position = Vector2( 2850, 406.153 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 27 )
+
+[node name="Signs" type="Node2D" parent="BackElements"]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer2"]
+editor/display_folded = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer2/Node2D"]
+margin_left = 870.0
+margin_top = 90.0
+margin_right = 1070.0
+margin_bottom = 290.0
+rect_min_size = Vector2( 200, 200 )
+custom_fonts/normal_font = SubResource( 44 )
+text = "0
+"
+
+[node name="Hints" type="Node2D" parent="CanvasLayer2"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer2/Hints"]
+margin_left = 130.0
+margin_top = 555.698
+margin_right = 730.0
+margin_bottom = 655.698
+rect_min_size = Vector2( 600, 200 )
+custom_fonts/normal_font = SubResource( 44 )
+text = "0
+"
+[connection signal="body_entered" from="SaveGems/SaveGem1/Gem/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="SaveGems/SaveGem1/Gem/Area2D" to="SaveGems/SaveGem1/Gem" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="SaveGems/SaveGem5/Gem/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="SaveGems/SaveGem5/Gem/Area2D" to="SaveGems/SaveGem5/Gem" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="SaveGems/SaveGem3/Gem/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="SaveGems/SaveGem3/Gem/Area2D" to="SaveGems/SaveGem3/Gem" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="SaveGems/SaveGem2/Gem/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="SaveGems/SaveGem2/Gem/Area2D" to="SaveGems/SaveGem2/Gem" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="SaveGems/SaveGem4/Gem/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="SaveGems/SaveGem4/Gem/Area2D" to="SaveGems/SaveGem4/Gem" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="SaveGems/SaveGem6/Gem/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="SaveGems/SaveGem6/Gem/Area2D" to="SaveGems/SaveGem6/Gem" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="SaveGems/SaveGem7/Gem/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="SaveGems/SaveGem7/Gem/Area2D" to="SaveGems/SaveGem7/Gem" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="SaveGems/SaveGem8/Gem/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="SaveGems/SaveGem8/Gem/Area2D" to="SaveGems/SaveGem8/Gem" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="SaveGems/SaveGem9/Gem/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="SaveGems/SaveGem9/Gem/Area2D" to="SaveGems/SaveGem9/Gem" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="SaveGems/SaveGem10/Gem/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="SaveGems/SaveGem10/Gem/Area2D" to="SaveGems/SaveGem10/Gem" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="SaveGems/SaveGem11/Gem/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="SaveGems/SaveGem11/Gem/Area2D" to="SaveGems/SaveGem11/Gem" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="OrbNode/Area2D" to="OrbNode" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="OrbNode2/Area2D" to="OrbNode2" method="_on_Area2D_body_entered"]

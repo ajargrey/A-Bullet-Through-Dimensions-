@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Xbox One Rare Achievement Sound _ Popup Notification 1s - 3s (MaPDKHgGpEg).ogg-359a780b92b01884fe1e3f591dfadeb1.oggstr"
+
+[deps]
+
+source_file="res://Levels/Level_0/Audio/Xbox One Rare Achievement Sound _ Popup Notification 1s - 3s (MaPDKHgGpEg).ogg"
+dest_files=[ "res://.import/Xbox One Rare Achievement Sound _ Popup Notification 1s - 3s (MaPDKHgGpEg).ogg-359a780b92b01884fe1e3f591dfadeb1.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
